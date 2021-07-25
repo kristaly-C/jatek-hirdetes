@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${error}">ERROR</title>
+    <link rel="stylesheet" th:href="@{css/errorstyle.css}" href="../static/css/errorstyle.css">
+</head>
+<body>
+<div class="hero-image">
+        <div class="wrapper">
+            <a href="/"><div class="back"></div></a>
+            <div class="elso"><h2 th:text="${status}">Hiba</h2></div>
+            <div class="masodik"><h2 th:text="${error}">Hiba</h2></div>
+        </div>
+
+
+</div>
+
+</body>
+</html>

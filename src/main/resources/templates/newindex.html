@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu"xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pagetitle}">NewIndex</title>
+    <link rel="stylesheet" th:href="@{css/newstyle.css}" href="../static/css/newstyle.css">
+</head>
+<body>
+<div class="hero-image">
+    <h2>Ezt a játékot keresem...</h2>
+    <div class="arrow"></div>
+</div>
+<div id="navbar">
+    <a href="">KERESÉS</a>
+    <a href="">REGISZTRÁCIÓ</a>
+    <a href="">BEJENTKEZÉS</a>
+</div>
+
+<div class="content">
+
+    <div class="wrapper">
+        <div th:each="ad: ${games}">
+            <div class="image">
+                <a th:href="${ad.getUrl()}" href="https://store.steampowered.com/app/646910/The_Crew_2/" target="_blank">
+                    <img  th:src="${ad.getPictureUrl()}" src="https://cdn.akamai.steamstatic.com/steam/apps/646910/header.jpg?t=1602605338">
+                </a>
+            </div>
+            <div class="gamename">
+                <h2 th:text="${ad.getGameName()}">asd</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
+</body>
+</html>

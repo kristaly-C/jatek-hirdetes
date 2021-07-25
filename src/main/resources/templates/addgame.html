@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Új játék</title>
+    <link rel="stylesheet" th:href="@{css/style1.css}" href="../static/css/style1.css">
+</head>
+<body>
+<div class="topnav">
+    <div class="topnav-centered">
+        <a href="/" class="active">
+            <img src="https://store.akamai.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016" alt="gamepiscture">
+        </a>
+        <form name="addgame" th:action="@{/newGame}" th:object="${game}" method="post" >
+            <h2 style="color: aliceblue"> Kérlek add meg az új játék adatait</h2>
+                <input type="text" id="steamUrl" name="steamUrl" th:field="*{game.url}" placeholder="Jatek steam-es URL-je" /></br>
+            <button type="submit">Hozzáadás</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

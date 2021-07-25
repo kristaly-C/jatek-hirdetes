@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Új hírdetés</title>
+  <link rel="stylesheet" th:href="@{css/adstyle.css}" href="../static/css/adstyle.css">
+</head>
+<body>
+<div class="hero-image">
+  <div class="container">
+    <div class="wrapper">
+      <div class="bck">
+      <a href="/"><div class="back"></div></a>
+      </div>
+        <div class="forma">
+      <form name="newAd" th:action="@{/addAd}" th:object="${ad}" method="post">
+        <label for="Gsite">Hova szól az ajánlat</label>
+        <select id="Gsite" name="Gsite">
+          <option value="1" >Steam</option>
+        </select>
+        <label for="game">Eladni kívánt játék</label>
+        <select id="game" name="game" th:field="*{gameID}">
+          <option th:each="geme: ${allgame}" th:value="${geme.id}" th:text="${geme.gameName}">Jatekneve</option>
+        </select>
+        <label for="gameprice">Ár</label>
+        <input type="text" th:field="*{price}" id="gameprice" name="gameprice" placeholder="Add meg a kívánt árat">
+        <input type="submit" value="Felvétel">
+      </form>
+      </div>
+      <div class="newgame">
+        <h2></h2>
+      </div>
+    </div>
+    <div class="gameinf">
+      <div class="pic">
+        <img src="https://cdn.akamai.steamstatic.com/steam/apps/646910/header.jpg?t=1602605338">
+      </div>
+      <div class="desc">
+        <a href="https://www.baeldung.com/thymeleaf-select-option">Segedanyag</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
