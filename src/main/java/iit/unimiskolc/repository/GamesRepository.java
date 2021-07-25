@@ -56,6 +56,23 @@ public class GamesRepository {
                 }
         );
     }
+    public GameImplement findById(int id){
+        String sql = "SELECT * FROM games WHERE games.id = ?";
+        return jdbc.queryForObject(
+                sql,
+                new Object[]{id},
+                (rs, rowNum) -> {
+                    GameImplement game = new GameImplement(
+                            rs.getInt("id"),
+                            rs.getString("storepage"),
+                            rs.getString("picture"),
+                            rs.getString("name"),
+                            rs.getInt("siteID")
+                    );
+                    return game;
+                }
+        );
+    }
 
     public List<GameImplement> getAvailabled(){
         String sql = "SELECT games.id,games.name,games.picture,games.storepage,games.siteID FROM games INNER JOIN item ON item.game = games.id GROUP BY games.name";

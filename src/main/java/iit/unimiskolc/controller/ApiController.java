@@ -9,9 +9,7 @@ import iit.unimiskolc.services.AdService;
 import iit.unimiskolc.services.GamesService;
 import iit.unimiskolc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -48,6 +46,12 @@ public class ApiController {
     public GameImplement FindGameByName(@PathVariable(value = "title") String title){
         return gamesService.getGameByName(title);
 
+    }
+
+    @GetMapping("/api/picfor/{id}")
+    @ResponseBody
+    public String bannerImage(@PathVariable(value = "id") int id){
+        return gamesService.getGameById(id).getPictureUrl();
     }
 
 }

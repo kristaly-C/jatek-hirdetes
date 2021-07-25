@@ -66,7 +66,7 @@ public class HomeController {
 
     @PostMapping("/addAd")
     public String addNewAd(@ModelAttribute GameAd ad, Model model){
-        int SellerTest = 1;
+        int SellerTest = 1;         //TEST
         try {
             adServ.addNew(new GameAd(ad.getGameID(),ad.getPrice(),SellerTest));
         }catch (Exception e)

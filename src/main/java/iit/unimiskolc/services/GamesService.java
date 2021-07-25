@@ -38,5 +38,6 @@ public class GamesService {
         return gameRepo.getAvailabled();
     }
 
+    public GameImplement getGameById(int id){ return gameRepo.findById(id); }
 
 }
