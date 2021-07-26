@@ -40,21 +40,26 @@ public class GamesRepository {
     }
 
     public GameImplement findByName(String name){
-        String sql = "SELECT * FROM games WHERE games.name = ?";
-        return jdbc.queryForObject(
-                sql,
-                new Object[]{name},
-                (rs, rowNum) -> {
-                    GameImplement game = new GameImplement(
-                            rs.getInt("id"),
-                            rs.getString("storepage"),
-                            rs.getString("picture"),
-                            rs.getString("name"),
-                            rs.getInt("siteID")
-                    );
-                    return game;
-                }
-        );
+        try {
+            String sql = "SELECT * FROM games WHERE games.name = ?";
+            return jdbc.queryForObject(
+                    sql,
+                    new Object[]{name},
+                    (rs, rowNum) -> {
+                        GameImplement game = new GameImplement(
+                                rs.getInt("id"),
+                                rs.getString("storepage"),
+                                rs.getString("picture"),
+                                rs.getString("name"),
+                                rs.getInt("siteID")
+                        );
+                        return game;
+                    }
+            );
+        }catch (Exception e){
+         System.err.println(e);
+        }
+        return null;
     }
     public GameImplement findById(int id){
         String sql = "SELECT * FROM games WHERE games.id = ?";

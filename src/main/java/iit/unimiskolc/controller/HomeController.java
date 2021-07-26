@@ -46,7 +46,7 @@ public class HomeController {
         try {
             System.out.println("Új jatek hozzaadva");
             Scrap scrapper = new Scrap();
-            game = scrapper.scrapSteamGame(game.getUrl());
+            game = scrapper.scrapSteamGameByURL(game.getUrl());
             gamesService.addNewGame(game);
         }catch (Exception e){
             System.err.println(e);
