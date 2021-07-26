@@ -3,12 +3,15 @@ package iit.unimiskolc.controller;
 
 import iit.unimiskolc.domain.GameAd;
 import iit.unimiskolc.domain.GameImplement;
+import iit.unimiskolc.domain.Scrap;
 import iit.unimiskolc.domain.SellerImpl;
 import iit.unimiskolc.domain.interfaces.Game;
 import iit.unimiskolc.services.AdService;
 import iit.unimiskolc.services.GamesService;
 import iit.unimiskolc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,6 +55,22 @@ public class ApiController {
     @ResponseBody
     public String bannerImage(@PathVariable(value = "id") int id){
         return gamesService.getGameById(id).getPictureUrl();
+    }
+
+    @RequestMapping("/api/newgame/{gamename}")
+    @ResponseBody
+    public ResponseEntity<String> addnewGame(@PathVariable(value = "gamename") String gamename){
+        if(gamesService.getGameByName(gamename) == null){
+            try {
+                Scrap valami = new Scrap();
+                GameImplement game = valami.scrapSteamGameByName(gamename);
+                gamesService.addNewGame(game);
+                return ResponseEntity.status(HttpStatus.OK).body("New game added\n");
+            }catch (Exception e){
+                System.err.println(e);
+            }
+        }
+        return ResponseEntity.status(HttpStatus.OK).body("Már szerepel a listában\n");
     }
 
 }

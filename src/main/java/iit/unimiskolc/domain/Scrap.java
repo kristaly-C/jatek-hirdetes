@@ -10,10 +10,23 @@ public class Scrap {
 
     Document doc;
 
-    public GameImplement scrapSteamGame(String url){
+    public GameImplement scrapSteamGameByURL(String url){
         GameImplement game = new GameImplement(url,scrapPicture(url),scrapGameName(url),
                 1);
         return game;
+    }
+
+    public GameImplement scrapSteamGameByName(String name){
+        String searchUrl = getGameSearchName(name);
+        String url = getSiteUrl(searchUrl);
+        try {
+            GameImplement game = new GameImplement(url,scrapPicture(url),scrapGameName(url),
+                    1);
+            return game;
+        }catch (Exception e){
+            System.err.println(e);
+        }
+        return null;
     }
 
 
@@ -69,7 +82,6 @@ public class Scrap {
         String urlBasic = "https://store.steampowered.com/search/?term=";
         String searchstylename = gameName.replaceAll(" ","+");
         urlBasic = urlBasic.concat(searchstylename);
-        System.out.println(urlBasic);
         return urlBasic;
     }
 

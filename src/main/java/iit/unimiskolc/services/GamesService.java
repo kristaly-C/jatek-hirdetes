@@ -2,6 +2,7 @@ package iit.unimiskolc.services;
 
 
 import iit.unimiskolc.domain.GameImplement;
+import iit.unimiskolc.domain.Scrap;
 import iit.unimiskolc.domain.Site;
 import iit.unimiskolc.domain.interfaces.Game;
 import iit.unimiskolc.repository.GamesRepository;
@@ -15,7 +16,6 @@ import java.util.List;
 public class GamesService {
 
     private GamesRepository gameRepo;
-
 
     @Autowired
     public void setGameRepo(GamesRepository gameRepo){
@@ -39,5 +39,6 @@ public class GamesService {
     }
 
     public GameImplement getGameById(int id){ return gameRepo.findById(id); }
+
 
 }
