@@ -42,10 +42,10 @@ body, html {
     border-radius: 40px;
     overflow: hidden;
     box-shadow:0px 6px 5px rgba(0,0,0,0.9);
+    color: white;
 }
 
 .wrapper .bck{
-    background: crimson;
     height: 20%;
 }
 
@@ -63,7 +63,6 @@ body, html {
 
 .wrapper .forma{
     position: relative;
-    background: #219ebc;
     height: 65%;
     z-index: 1;
 }
@@ -113,13 +112,11 @@ input[type=submit]:hover {
 }
 .gameinf .pic{
     position: relative;
-    background: #04AA6D;
     width: 100%;
     height: 35%;
 }
 .gameinf .desc{
     position: relative;
-    background: tan;
     width: 100%;
     height: 20%;
 }
@@ -129,13 +126,13 @@ input[type=submit]:hover {
     position: relative;
     transform: translateY(-50%);
     top: 50%;
+    color: white;
 }
 
 .gameinf .searchBox{
     position: relative;
     width: 100%;
     height: 45%;
-    background: darkorchid;
 }
 
 .gameinf .pic img{
@@ -168,7 +165,7 @@ input[type=submit]:hover {
     position: relative;
     width: 100%;
     height: 15%;
-    background: #04AA6D;
+    color: white;
 }
 
 .newgame h5{
@@ -176,7 +173,7 @@ input[type=submit]:hover {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    color: rgba(0,0,0,0.4);
+    color: rgba(255,255,255,0.8);
 }
 
 .newgame h5:hover{
