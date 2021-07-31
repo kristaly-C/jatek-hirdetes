@@ -11,7 +11,7 @@ body, html {
     min-width:500px;        /* Suppose you want minimum width of 1000px */
     width: auto !important;
     width:500px;
-    background: #70A288;
+    background: rgba(4, 57, 94, 1);
 }
 
 .hero-image {
@@ -65,6 +65,7 @@ body, html {
     position: relative;
     background: #219ebc;
     height: 65%;
+    z-index: 1;
 }
 
 input[type=text], select{
@@ -99,22 +100,68 @@ input[type=submit]:hover {
     border-radius: 40px;
     overflow: hidden;
     box-shadow:0px 6px 5px rgba(0,0,0,0.9);
+    position: relative;
+    animation-name: example;
+    animation-duration: 2s;
+    z-index: -10;
+}
+
+@keyframes example {
+    from{}
+    0%   { right:83%;}
+    100% { right:0px;}
 }
 .gameinf .pic{
     position: relative;
     background: #04AA6D;
     width: 100%;
-    height: 50%;
+    height: 35%;
 }
 .gameinf .desc{
     position: relative;
     background: tan;
     width: 100%;
-    height: 50%;
+    height: 20%;
 }
+
+.gameinf .desc h4{
+    text-align: center;
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.gameinf .searchBox{
+    position: relative;
+    width: 100%;
+    height: 45%;
+    background: darkorchid;
+}
+
 .gameinf .pic img{
     position: relative;
     width: 100%;
+}
+
+#searchedGameName{
+    top: 30px;
+}
+
+.gameinf #sbtn {
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 40px;
+    width: 95%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.gameinf #sbtn:hover {
+    background-color: #45a049;
 }
 
 .wrapper .newgame{
@@ -124,9 +171,39 @@ input[type=submit]:hover {
     background: #04AA6D;
 }
 
+.newgame h5{
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    color: rgba(0,0,0,0.4);
+}
+
+.newgame h5:hover{
+    color: black;
+    cursor: pointer;
+}
+
+
 .hide {
     display: none;
 }
+
+.animation{
+    position: relative;
+    animation-name: other;
+    animation-duration: 2s;
+}
+
+@keyframes other {
+    0%   { left:83%; top:0px;}
+    100% { left:0px; top:0px;}
+}
+
+
+
+
+
 
 /* width */
 ::-webkit-scrollbar {

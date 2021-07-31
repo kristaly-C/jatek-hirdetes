@@ -10,7 +10,7 @@
 <body>
 <div class="hero-image">
   <div class="container">
-    <div class="wrapper">
+    <div id="mainBlock" class="wrapper">
       <div class="bck">
       <a href="/"><div class="back"></div></a>
       </div>
@@ -30,7 +30,7 @@
       </form>
       </div>
       <div class="newgame">
-        <h2></h2>
+        <h5>Nemtalálom a játékot a listában</h5>
       </div>
     </div>
     <div id="gameInfo" class="gameinf hide">
@@ -38,7 +38,11 @@
         <img src="https://cdn.akamai.steamstatic.com/steam/apps/646910/header.jpg?t=1602605338">
       </div>
       <div class="desc">
-        <a href="https://www.baeldung.com/thymeleaf-select-option">Segedanyag</a>
+        <h4>Játék keresése</h4>
+      </div>
+      <div class="searchBox">
+        <input type="text" id="searchedGameName" name="searchedGameName" placeholder="Add meg a keresett játé nevét">
+        <button id="sbtn">Try it</button>
       </div>
     </div>
   </div>

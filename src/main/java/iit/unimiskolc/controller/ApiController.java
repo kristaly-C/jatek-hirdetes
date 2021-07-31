@@ -75,7 +75,7 @@ public class ApiController {
 
 
         if (Okay){
-            return ResponseEntity.status(HttpStatus.OK).body("New game added\n");
+            return ResponseEntity.status(HttpStatus.CREATED).body("New game added\n");
         }
         return ResponseEntity.status(HttpStatus.OK).body("The game is found the collection\n");
     }
