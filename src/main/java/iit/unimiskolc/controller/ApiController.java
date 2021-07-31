@@ -1,6 +1,7 @@
 package iit.unimiskolc.controller;
 
 
+import ch.qos.logback.core.encoder.EchoEncoder;
 import iit.unimiskolc.domain.GameAd;
 import iit.unimiskolc.domain.GameImplement;
 import iit.unimiskolc.domain.Scrap;
@@ -60,17 +61,23 @@ public class ApiController {
     @RequestMapping("/api/newgame/{gamename}")
     @ResponseBody
     public ResponseEntity<String> addnewGame(@PathVariable(value = "gamename") String gamename){
-        if(gamesService.getGameByName(gamename) == null){
-            try {
-                Scrap valami = new Scrap();
-                GameImplement game = valami.scrapSteamGameByName(gamename);
+        boolean Okay = false;
+        try{
+            Scrap scrapper = new Scrap();
+            GameImplement game = scrapper.scrapSteamGameByName(gamename);
+            if(gamesService.getGameByName(game.getGameName()) == null){
                 gamesService.addNewGame(game);
-                return ResponseEntity.status(HttpStatus.OK).body("New game added\n");
-            }catch (Exception e){
-                System.err.println(e);
+                Okay = true;
             }
+        }catch (Exception e){
+            System.err.println(e);
         }
-        return ResponseEntity.status(HttpStatus.OK).body("Már szerepel a listában\n");
+
+
+        if (Okay){
+            return ResponseEntity.status(HttpStatus.OK).body("New game added\n");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body("The game is found the collection\n");
     }
 
 }
