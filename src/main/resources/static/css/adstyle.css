@@ -78,6 +78,7 @@ input[type=text], select{
     border: 1px solid #ccc;
     border-radius: 10px;
     box-sizing: border-box;
+    outline: none;
 }
 input[type=submit] {
     width: 95%;
@@ -88,6 +89,7 @@ input[type=submit] {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    outline: none;
 }
 
 input[type=submit]:hover {

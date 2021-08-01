@@ -34,28 +34,6 @@ public class HomeController {
         return "newindex";
     }
 
-    @RequestMapping("/addgame")
-    public String addnewgame(Model model){
-        model.addAttribute("game", new GameImplement());
-        return "addgame";
-    }
-
-
-    @PostMapping("/newGame")
-    public String newGame(@ModelAttribute GameImplement game, Model model){
-        try {
-            System.out.println("Új jatek hozzaadva");
-            Scrap scrapper = new Scrap();
-            game = scrapper.scrapSteamGameByURL(game.getUrl());
-            gamesService.addNewGame(game);
-        }catch (Exception e){
-            System.err.println(e);
-        }
-        model.addAttribute("pagetitle","olcsojatekok");
-        model.addAttribute("gameads",getAvailableGameList());
-        return "index";
-    }
-
 
     @GetMapping("/addAd")
     public String newAd(Model model){

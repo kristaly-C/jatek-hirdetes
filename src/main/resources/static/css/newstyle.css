@@ -11,7 +11,7 @@ body, html {
     min-width:500px;        /* Suppose you want minimum width of 1000px */
     width: auto !important;
     width:500px;
-    background: #70A288;
+    background: #04395E;
 }
 
 .hero-image {
@@ -55,23 +55,41 @@ body, html {
     overflow: hidden;
     background-color: #04395E;
     z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 600px);
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    grid-auto-rows: 100px;
+    justify-content: center;
 }
 
-#navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    width: 30%;
+#navbar div {
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 1.5vw;
+    color: white;
 }
 
-#navbar a:hover {
-    background-color: #70A288;
-    color: black;
+#navbar div h2{
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
 }
+
+#navbar div input[type=text] {
+    position: relative;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    transform: translateY(-50%);
+    width: 80%;
+    top: 40%;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    outline: none;
+    font-size: 1em;
+}
+
 
 .content {
     padding: 1em;
