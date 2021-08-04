@@ -1,6 +1,7 @@
 package iit.unimiskolc.repository;
 
 
+import iit.unimiskolc.domain.Ad;
 import iit.unimiskolc.domain.GameAd;
 import iit.unimiskolc.domain.GameImplement;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,22 @@ public class AdRepository {
                         rs.getInt("status")
                 )
         );
+    }
+
+    public List<Ad> pageAbleAds(long gameID) {
+        String sql = "SELECT item.id AdID,item.price AdPrice,users.id UserID,users.hvname UserName,users.hvlink UserLink FROM `item` INNER JOIN users ON item.usser = users.id WHERE item.game = ";
+        sql += String.valueOf(gameID);
+        try {
+            return jdbc.query(sql, (rs, i) ->
+                    new Ad(
+                            rs.getLong("UserID"),
+                            rs.getString("UserName"),
+                            rs.getString("UserLink"),
+                            rs.getInt("AdID"),
+                            rs.getFloat("AdPrice")));
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return null;
     }
 }

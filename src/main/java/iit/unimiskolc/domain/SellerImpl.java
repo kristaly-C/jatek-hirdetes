@@ -20,16 +20,23 @@ public class SellerImpl implements Seller {
         this.email = email;
     }
 
-    public SellerImpl(long ID, String name, String email) {
-        this.ID = ID;
-        this.name = name;
-        this.email = email;
-    }
-
     public SellerImpl(String email,String passwd){
         this.email = email;
         this.passwd = passwd;
     }
+    public SellerImpl(long id, String username,String email){
+        this.ID=id;
+        this.name=username;
+        this.email =email;
+    }
+
+    public SellerImpl(long id, String username, String url, String email){
+        this.ID=id;
+        this.name=username;
+        this.hardveraproUrl= url;
+        this.email =email;
+    }
+
 
     public SellerImpl(long id){
         this.ID = id;

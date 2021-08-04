@@ -43,7 +43,7 @@ public class ApiController {
     }
 
     @RequestMapping("/api/adID/{id}")
-    public List<GameAd> addGame(@PathVariable(value = "id") int id){
+    public List<GameAd> addGame(@PathVariable(value = "id") long id){
         return adService.SearchByID(id);
     }
     @RequestMapping("/api/name/{title}")
