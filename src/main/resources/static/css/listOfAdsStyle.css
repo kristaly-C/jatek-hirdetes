@@ -20,6 +20,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 #headbox{
@@ -31,7 +32,6 @@ body, html {
     height: 340px;
     z-index: 3;
     top: 5%;
-    border-radius: 20px;
 }
 
 #content{
@@ -45,33 +45,29 @@ body, html {
 .wrapperhead{
     display: grid;
     grid-template-columns: repeat(1, 100%);
-    grid-auto-rows: 180px;
+    grid-auto-rows: 150px;
     justify-content: center;
 }
 
 #gamepic{
-
-    height: 200px;
+    height: 150px;
 }
 
 #image{
     position: relative;
     transform: translate(-50%,-50%);
     left: 50%;
-    top: 50%;
+    top: 35%;
     width:100%;
     object-fit: contain;
-    border-radius: 5px;
     max-height: 100%;
 }
 
 #gameinfo{
-
-    height: 120px;
+    height: 190px;
 }
 
 #gamename{
-
     width: 100%;
     height: 50%;
 }
@@ -83,7 +79,7 @@ body, html {
 
 #gamesite h2{
     position: relative;
-    top: 20%;
+    top: 45%;
     text-align: center;
     font-size: 1em;
     color: #d0be46;
@@ -106,6 +102,29 @@ body, html {
     width: 250px;
     height: 250px;
     bottom: 0px;
+    z-index: 5;
+}
+
+#back{
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    right: 0px;
+    top: 0px;
+    background: #cbb213 url("../images/home.png") no-repeat;
+    background-size: contain;
+    border-radius: 0px 0px 0px 10px;
+}
+
+#design{
+    position: relative;
+    transform: translate(-600px,-475px) rotateZ(70deg);
+    width: 1000px;
+    height: 1000px;
+    background: rgb(203, 203, 203);
+    z-index: 1;
+    -webkit-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.8);
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.8);
 }
 
 .wrappercontent{
@@ -122,16 +141,18 @@ body, html {
 
 .Adblock{
     position: relative;
-
+    background: rgba(0,0,0,0.2);
     width: 100%;
     height: 300px;
     border-radius: 5px;
+    -webkit-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.8);
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.8);
 }
 .username{
     position: absolute;
     height: 40%;
     width: 100%;
-    background: #033106;
+
     text-align: center;
 }
 .username h2{
@@ -146,7 +167,7 @@ body, html {
     position: absolute;
     height: 40%;
     width: 100%;
-    background: #3b6793;
+
     top: 40%;
     text-align: center;
 }
@@ -162,7 +183,7 @@ body, html {
     position: absolute;
     height: 20%;
     width: 100%;
-    background: #d0be46;
+    background: #cbb213;
     top: 80%;
     text-align: center;
 }
@@ -170,7 +191,7 @@ body, html {
     position: relative;
     transform: translateY(-50%);
     top: 50%;
-    color: #cccccc;
+    color: #262626;
     font-size: 1em;
 }
 
@@ -180,11 +201,25 @@ body, html {
         height: 400px;
     }
     #gamepic{
-        height: 300px;
+        height: 200px;
+    }
+    #image{
+        transform: translate(-50%,-50%);
+        top: 50%;
     }
     .wrapperhead{
-        grid-row-gap: 100px;
+        grid-row-gap: 50px;
     }
+    #gamename h2{
+        top: 30%;
+    }
+
+    #design{
+        width: 2000px;
+        height: 2000px;
+        transform: translate(-80%,-59%) rotateZ(70deg);
+    }
+
     #scrollimg{
         width: 200px;
         height: 200px;
@@ -210,7 +245,6 @@ body, html {
         object-fit: cover;
         height: auto;
         width: 100%;
-        border-radius: 20px;
 
     }
     #gameinfo{
@@ -224,6 +258,7 @@ body, html {
     }
     #gamename{
         height: available;
+        overflow-wrap: break-word;
     }
 
     #gamename h2{
@@ -235,6 +270,7 @@ body, html {
         transform: translateY(-50%);
         top: 50%;
     }
+
 
     .wrappercontent{
         top: 100px;
@@ -278,6 +314,13 @@ body, html {
     }
     #gamepic{
         height: 300px;
+    }
+
+    #design{
+        width: 2500px;
+        height: 350px;
+        transform: translate(-38%,-45%);
+        top: 29%;
     }
 }
 

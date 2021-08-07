@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${pagetitle}">NewIndex</title>
-    <link rel="stylesheet" th:href="@{css/newstyle.css}" href="../static/css/newstyle.css">
+    <link rel="stylesheet" th:href="@{/css/newstyle.css}" href="../static/css/newstyle.css">
 </head>
 <body>
 <div class="hero-image">
@@ -16,7 +16,7 @@
      <h2>Hirdess itt</h2>
  </div>
     <div>
-    <input type="text" placeholder="KERESÉS">
+    <input id="sea" type="text" placeholder="KERESÉS" onkeyup="kereso()">
     </div>
     <div>
         <h2>Bejelentkezés</h2>
@@ -25,33 +25,20 @@
 
 <div class="content">
 
-    <div class="wrapper">
+    <div class="wrapper" id="lista">
         <div th:each="ad: ${games}">
             <div class="image">
-                <a th:href="${ad.getUrl()}" href="https://store.steampowered.com/app/646910/The_Crew_2/" target="_blank">
+                <a th:href="${'/game/'+ ad.getGameName()}" href="https://store.steampowered.com/app/646910/The_Crew_2/" target="_self">
                     <img  th:src="${ad.getPictureUrl()}" src="https://cdn.akamai.steamstatic.com/steam/apps/646910/header.jpg?t=1602605338">
                 </a>
             </div>
             <div class="gamename">
-                <h2 th:text="${ad.getGameName()}">asd</h2>
+                <h2 th:text="${ad.getGameName()}">Játék neve</h2>
             </div>
         </div>
     </div>
     </div>
 
-<script>
-    window.onscroll = function() {myFunction()};
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
-</script>
+<script src="../static/js/newindexJs.js" th:src="@{js/newindexJs.js}"></script>
 </body>
 </html>

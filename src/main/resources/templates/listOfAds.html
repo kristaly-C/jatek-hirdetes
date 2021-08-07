@@ -4,79 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${game.getGameName()}">Title</title>
-    <link rel="stylesheet" th:href="@{css/listOfAdsStyle.css}" href="../static/css/listOfAdsStyle.css">
+    <link rel="stylesheet" th:href="@{/css/listOfAdsStyle.css}" href="../static/css/listOfAdsStyle.css">
 </head>
 <body>
 <div id="header">
+    <a href="/"><div id="back"></div></a>
     <div id="headbox" class="wrapperhead">
         <div id="gamepic" >
-            <img id="image" src="https://cdn.cloudflare.steamstatic.com/steam/apps/979690/header.jpg?t=1627672662">
+            <img id="image" th:src="${game.getPictureUrl()}" src="https://cdn.cloudflare.steamstatic.com/steam/apps/979690/header.jpg?t=1627672662">
         </div>
         <div id="gameinfo" >
             <div id="gamename">
-                <h2>A jatek neve</h2>
+                <h2 th:text="${game.getGameName()}">A jatek neve amit itt most megadok fent</h2>
             </div>
+            <a th:href="${game.getUrl()}" target="_blank">
             <div id="gamesite">
-                <h2>Game site</h2>
+                <h2 th:text="${game.getKeyActivationSite().toString()}">Game site</h2>
             </div>
+            </a>
         </div>
     </div>
     <div id="scrollimg">
-
     </div>
+    <div id="design"></div>
 </div>
 <div id="content">
     <div class="wrappercontent">
-        <div class="Adblock">
+        <div class="Adblock" th:each="ad: ${ads}">
             <div class="username">
-                <h2>Felhasználó</h2>
+                <h2 th:text="${ad.getUserName()}">Felhasználó</h2>
             </div>
             <div class="price">
-                <h2>Ár</h2>
+                <h2 th:text="${ad.getPrice()}">Ár</h2>
             </div>
-            <a href="https://hardverapro.hu/apro/far_cry_6_resident_evil_3_remake_monster_hunter_wo_2/hsz_1-50.html" target="_blank">
+            <a th:href="${ad.getUrl()}" href="https://hardverapro.hu/apro/far_cry_6_resident_evil_3_remake_monster_hunter_wo_2/hsz_1-50.html" target="_blank">
             <div class="gobutton">
                 <h2>Tovább</h2>
             </div>
-            </a>
-        </div>
-        <div class="Adblock">
-            <div class="username">
-                <h2>Felhasználó</h2>
-            </div>
-            <div class="price">
-                <h2>Ár</h2>
-            </div>
-            <a href="https://hardverapro.hu/apro/far_cry_6_resident_evil_3_remake_monster_hunter_wo_2/hsz_1-50.html" target="_blank">
-                <div class="gobutton">
-                    <h2>Tovább</h2>
-                </div>
-            </a>
-        </div>
-        <div class="Adblock">
-            <div class="username">
-                <h2>Felhasználó</h2>
-            </div>
-            <div class="price">
-                <h2>Ár</h2>
-            </div>
-            <a href="https://hardverapro.hu/apro/far_cry_6_resident_evil_3_remake_monster_hunter_wo_2/hsz_1-50.html" target="_blank">
-                <div class="gobutton">
-                    <h2>Tovább</h2>
-                </div>
-            </a>
-        </div>
-        <div class="Adblock">
-            <div class="username">
-                <h2>Felhasználó</h2>
-            </div>
-            <div class="price">
-                <h2>Ár</h2>
-            </div>
-            <a href="https://hardverapro.hu/apro/far_cry_6_resident_evil_3_remake_monster_hunter_wo_2/hsz_1-50.html" target="_blank">
-                <div class="gobutton">
-                    <h2>Tovább</h2>
-                </div>
             </a>
         </div>
     </div>
