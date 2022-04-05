@@ -114,6 +114,7 @@ body, html {
     background: #cbb213 url("../images/home.png") no-repeat;
     background-size: contain;
     border-radius: 0px 0px 0px 10px;
+    z-index:10;
 }
 
 #design{

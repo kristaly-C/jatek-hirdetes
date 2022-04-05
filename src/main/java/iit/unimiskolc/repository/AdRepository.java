@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class AdRepository {
                 )
         );
     }
+
 
     public void addNew(GameAd ad){
         jdbc.update("INSERT INTO item (usser,game,price,quantity,adCreated, adModified,status) VALUES (?,?,?,?,?,?,?)",
@@ -70,5 +72,15 @@ public class AdRepository {
             System.err.println(e);
         }
         return null;
+    }
+
+    public Boolean deleteAd(long gameID){
+        String sql = "DELETE FROM item WHERE item.id = ?";
+        try{
+            jdbc.update(sql,gameID);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
     }
 }

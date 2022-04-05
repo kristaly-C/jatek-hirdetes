@@ -26,6 +26,8 @@ public class AdService {
         adrepo.addNew(ad);
     }
 
+    public Boolean deleteAd(long aiID){return adrepo.deleteAd(aiID);}
+
     public List<GameAd> SearchByID(long ID){
         String sql = "SELECT * FROM item WHERE item.id = ";
         sql += ID;

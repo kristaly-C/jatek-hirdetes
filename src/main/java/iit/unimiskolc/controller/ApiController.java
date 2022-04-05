@@ -58,6 +58,9 @@ public class ApiController {
         return gamesService.getGameById(id).getPictureUrl();
     }
 
+    @RequestMapping("/api/deleteAd/{adId}")
+    public String deleteAdFromList(@PathVariable(value = "adId") long id){if(adService.deleteAd(id)){return "Deleted";}else{return"Error";}}
+
     @RequestMapping("/api/newgame/{gamename}")
     @ResponseBody
     public ResponseEntity<String> addnewGame(@PathVariable(value = "gamename") String gamename){

@@ -17,9 +17,9 @@ function docReady(fn) {
         for (let i = 0; i < myElement.children.length; i++) {
             if (!myElement.children[i].children[1].children[0].textContent.toLowerCase().match(nev)){
                 myElement.children[i].classList.add("hide");
-                console.log("Kéne");
+
             }else {
-                console.log("aaaaaaaaaa");
+
                 if (myElement.children[i].classList.contains('hide')){
                     myElement.children[i].classList.remove('hide');
                 }

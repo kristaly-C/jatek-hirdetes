@@ -161,6 +161,27 @@ body, html {
     display: none;
 }
 
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
+
 @media (max-width: 970px){
     #navbar a{
         width: 28%;
