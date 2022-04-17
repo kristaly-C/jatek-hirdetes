@@ -40,7 +40,7 @@ public class AdRepository {
 
     public void addNew(GameAd ad){
         jdbc.update("INSERT INTO item (usser,game,price,quantity,adCreated, adModified,status) VALUES (?,?,?,?,?,?,?)",
-                ad.getSeller(),ad.getGameID(),ad.getPrice(),1,ad.getAdCreated(),ad.getLastModified(),ad.getStatus());
+                (int)ad.getSeller(),ad.getGameID(),ad.getPrice(),1,ad.getAdCreated(),ad.getLastModified(),ad.getStatus());
     }
 
     public List<GameAd> findListOf(String sql){
@@ -58,7 +58,7 @@ public class AdRepository {
     }
 
     public List<Ad> pageAbleAds(long gameID) {
-        String sql = "SELECT item.id AdID,item.price AdPrice,users.id UserID,users.hvname UserName,users.hvlink UserLink FROM `item` INNER JOIN users ON item.usser = users.id WHERE item.game = ";
+        String sql = "SELECT item.id AdID,item.price AdPrice,users.id UserID,users.name UserName,users.hvlink UserLink FROM `item` INNER JOIN users ON item.usser = users.id WHERE item.game = ";
         sql += String.valueOf(gameID);
         try {
             return jdbc.query(sql, (rs, i) ->

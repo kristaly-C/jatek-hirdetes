@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequestMapping("/api")
 @RestController
 public class ApiController {
 
@@ -37,31 +37,31 @@ public class ApiController {
         this.userService = userService;
     }
 
-    @RequestMapping("/api/games")
+    @RequestMapping("/games")
     public List<GameImplement> games(){
         return gamesService.getGames();
     }
 
-    @RequestMapping("/api/adID/{id}")
+    @RequestMapping("/adID/{id}")
     public List<GameAd> addGame(@PathVariable(value = "id") long id){
         return adService.SearchByID(id);
     }
-    @RequestMapping("/api/name/{title}")
+    @RequestMapping("/name/{title}")
     public GameImplement FindGameByName(@PathVariable(value = "title") String title){
         return gamesService.getGameByName(title);
 
     }
 
-    @GetMapping("/api/picfor/{id}")
+    @GetMapping("/picfor/{id}")
     @ResponseBody
     public String bannerImage(@PathVariable(value = "id") int id){
         return gamesService.getGameById(id).getPictureUrl();
     }
 
-    @RequestMapping("/api/deleteAd/{adId}")
+    @RequestMapping("/deleteAd/{adId}")
     public String deleteAdFromList(@PathVariable(value = "adId") long id){if(adService.deleteAd(id)){return "Deleted";}else{return"Error";}}
 
-    @RequestMapping("/api/newgame/{gamename}")
+    @RequestMapping("/newgame/{gamename}")
     @ResponseBody
     public ResponseEntity<String> addnewGame(@PathVariable(value = "gamename") String gamename){
         boolean Okay = false;
@@ -83,4 +83,11 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.OK).body("The game is found the collection\n");
     }
 
+    @RequestMapping("/getUserByEmail/{email}")
+    public String userByEmail(@PathVariable(value = "email") String email){
+        if (userService.findByEmail(email) == null){
+            return "Null";
+        }
+        return userService.findByEmail(email).toString();
+    }
 }

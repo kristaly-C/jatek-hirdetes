@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{css/errorstyle.css}" href="../../static/css/errorstyle.css" type="text/css">
+</head>
+<body>
+<div class="hero-image">
+    <div class="wrapper">
+        <a href="/"><div class="back"></div></a>
+        <div class="elso">
+            <form name="f" th:action="@{/login}" method="post">
+                <h2>Jelentkezz be!</h2>
+                <div class="alertt" th:if="${param.error}">
+                    hibás bejelentkezési adatok!
+                </div>
+                <div th:if="${param.logout}" class="alertt">Sikeresen kijelentkeztél</div>
+                <label for="username" class="sr-only">Email cím</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Felhasználói név" required="true" />
+                <label for="password" class="sr-only">Jelszó</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Jelszó" required="true" />
+                <button type="submit">Bejelentkezés</button>
+            </form>
+        </div>
+        <div class="masodik">
+            <a href="/registration">Regisztráció</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

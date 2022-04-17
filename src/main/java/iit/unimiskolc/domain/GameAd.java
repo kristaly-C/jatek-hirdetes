@@ -10,14 +10,14 @@ public class GameAd {
     private int id = 0;
     private int gameID;
     private float price;
-    private int seller;
+    private long seller;
     private LocalDateTime adCreated;
     private LocalDateTime lastModified;
     private int status;
 
     public GameAd(){}
 
-    public GameAd(int id,int gameid, float price, int seller, LocalDateTime adCreated
+    public GameAd(int id,int gameid, float price, long seller, LocalDateTime adCreated
                   ,LocalDateTime lastMod, int status)
     {
         this.id = id;
@@ -29,7 +29,7 @@ public class GameAd {
         this.status = status;
     }
 
-    public GameAd(int gameId, float price, int seller) {
+    public GameAd(int gameId, float price, long seller) {
         this.gameID = gameId;
         this.price = price;
         this.seller = seller;
@@ -93,7 +93,7 @@ public class GameAd {
         this.lastModified = LocalDateTime.now();
     }
 
-    public void setSeller(int seller) {
+    public void setSeller(long seller) {
         this.seller = seller;
         this.lastModified = LocalDateTime.now();
     }

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="hu"xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${pagetitle}">NewIndex</title>
-    <link rel="stylesheet" th:href="@{/css/newstyle.css}" href="../static/css/newstyle.css">
+    <link rel="stylesheet" th:href="@{/css/newstyle.css}" href="../static/css/newstyle.css" type="text/css">
 </head>
 <body>
 <div class="hero-image">
@@ -21,7 +22,13 @@
     <input id="sea" type="text" placeholder="KERESÉS" onkeyup="kereso()">
     </div>
     <div>
-        <h2>Bejelentkezés</h2>
+        <h2 sec:authorize="isAuthenticated()" sec:authentication="principal.ProfileName">Bejelentkezés</h2>
+        <a sec:authorize="!isAuthenticated()" href="/login">
+            <h2>Bejelentkezés</h2>
+        </a>
+        <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post">
+            <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Kijelentkezés</a>
+        </form>
     </div>
 </div>
 

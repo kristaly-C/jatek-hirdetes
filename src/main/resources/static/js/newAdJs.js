@@ -1,21 +1,22 @@
 const select = document.getElementById('game');
 const info = document.getElementById('gameInfo');
-/*
+
 select.addEventListener('change', (ev) =>{
     console.log(ev.target.value);
     if (info.classList.contains('hide')){
-        info.classList.remove('hide');
+       //info.classList.remove('hide');
+    }else {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function (){
+            document.querySelector('.pic img').setAttribute('src',
+                this.responseText);
+        }
+        xhttp.open("GET","/api/picfor/"+ev.target.value);
+        xhttp.send();
     }
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function (){
-        document.querySelector('.pic img').setAttribute('src',
-            this.responseText);
-    }
-    xhttp.open("GET","/api/picfor/"+ev.target.value);
-    xhttp.send();
     }
 )
-*/
+
 
 const addPlatform = document.querySelector('.newgame h5');
 const firstBlock = document.getElementById('mainBlock');
@@ -48,6 +49,15 @@ searchBtn.addEventListener("click",(ev) =>{
     xhttp.send(null);
     newGameName.value = '';
 })
+
+
+function validateForm(){
+    let x = document.forms["newAd"]["gameprice"].value;
+    if(x == ""){
+        alert("Nem adtál meg árat!");
+        return false;
+    }
+}
 
 
 

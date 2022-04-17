@@ -15,8 +15,8 @@
       <a href="/"><div class="back"></div></a>
       </div>
         <div class="forma">
-      <form name="newAd" th:action="@{/addAd}" th:object="${ad}" method="post">
-        <label for="Gsite">Hova szól az ajánlat</label>
+      <form name="newAd" th:action="@{/addAd}" th:object="${ad}" onsubmit="return validateForm()" method="post">
+        <label for="Gsite">Platform</label>
         <select id="Gsite" name="Gsite">
           <option value="1" >Steam</option>
         </select>
@@ -25,7 +25,7 @@
           <option th:each="geme: ${allgame}" th:value="${geme.id}" th:text="${geme.gameName}">Jatekneve</option>
         </select>
         <label for="gameprice">Ár</label>
-        <input type="text" th:field="*{price}" id="gameprice" name="gameprice" placeholder="Add meg a kívánt árat">
+        <input type="number" th:field="*{price}" id="gameprice" name="gameprice" placeholder="Add meg a kívánt árat">
         <input type="submit" value="MEHET">
       </form>
       </div>

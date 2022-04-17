@@ -63,14 +63,47 @@ body, html {
 .wrapper .elso h2{
     position: relative;
     transform: translateY(-50%);
-    top: 50%;
-    font-size: 3em;
+    top: 1em;
+    font-size: 2em;
 }
 
-.wrapper .masodik h2{
+.wrapper .masodik a{
     position: relative;
     transform: translateY(-50%);
-    top: 30%;
+    top: 10em;
+}
+
+.alertt{
+    color: #cbb213;
+}
+
+input[type=text],input[type=password]{
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    outline: none;
+}
+button[type=submit] {
+    width: 95%;
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+button[type=submit]:hover {
+    background-color: #45a049;
 }
 
 /* width */

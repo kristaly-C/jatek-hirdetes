@@ -4,11 +4,14 @@ import iit.unimiskolc.domain.*;
 import iit.unimiskolc.exception.EmptyListException;
 import iit.unimiskolc.services.AdService;
 import iit.unimiskolc.services.GamesService;
+import iit.unimiskolc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -16,6 +19,7 @@ public class HomeController {
 
     private GamesService gamesService;
     private AdService adServ;
+    private UserService userServ;
 
 
     @Autowired
@@ -24,6 +28,8 @@ public class HomeController {
     public void setGamesService(GamesService gamesService){
         this.gamesService = gamesService;
     }
+    @Autowired
+    public void setUserServ(UserService userServ){this.userServ = userServ;}
 
     @RequestMapping("/")
     public String index(Model model){
@@ -41,10 +47,9 @@ public class HomeController {
     }
 
     @PostMapping("/addAd")
-    public String addNewAd(@ModelAttribute GameAd ad, Model model){
-        int SellerTest = 1;         //TEST
+    public String addNewAd(@ModelAttribute GameAd ad, Model model, @AuthenticationPrincipal UserDetailsImp user){
         try {
-            adServ.addNew(new GameAd(ad.getGameID(),ad.getPrice(),SellerTest));
+            adServ.addNew(new GameAd(ad.getGameID(),ad.getPrice(),user.getprifID()));
         }catch (Exception e)
         {
             System.err.println(e);
@@ -60,6 +65,26 @@ public class HomeController {
         model.addAttribute("ads", selectedAds(gameName));
         return "listOfAds";
     }
+
+    @RequestMapping("/registration")
+    public String registration(Model model){
+        model.addAttribute("SellerImpl", new SellerImpl());
+        return "registration";
+    }
+
+
+    @PostMapping("/reg")
+    public String greetingSubmit(@ModelAttribute SellerImpl user, Model model) {
+        if(userServ.registerUser(user)){
+            System.out.println("UJ USER");
+            return "auth/login";
+        }else{
+            model.addAttribute("SellerImpl", new SellerImpl());
+            return "registration";
+        }
+
+    }
+
 
 
     private GameImplement selectedGame(String game){

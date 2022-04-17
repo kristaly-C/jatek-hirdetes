@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Regisztráció</title>
+</head>
+<body>
+<a href="/">Home</a>
+    <form name="regist" th:action="@{/reg}" th:object="${SellerImpl}" method="post" >
+        <h2 >Itt regisztrálhatsz</h2>
+        <label for="username">felhasznalonev</label>
+        <input type="text" id="username"    name="username" th:field="*{name}"  placeholder="felhasználói név" required="true" />
+        <label for="password">jelszó</label>
+        <input type="password" id="password"    name="password" th:field="*{password}"  placeholder="jelszó" required="true" />
+        <label for="email">E-mail</label>
+        <input type="text" id="email"    name="email" th:field="*{email}"  placeholder="email" required="true" />
+        <label for="hv">E-mail</label>
+        <input type="text" id="hv"    name="hv" th:field="*{hardveraproUrl}"  placeholder="HardverApro név" required="true" />
+        <button type="submit">Regisztrálok</button>
+
+    </form>
+</body>
+</html>
