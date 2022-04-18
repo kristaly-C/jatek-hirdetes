@@ -21,8 +21,9 @@
     <div>
     <input id="sea" type="text" placeholder="KERESÉS" onkeyup="kereso()">
     </div>
-    <div>
-        <h2 sec:authorize="isAuthenticated()" sec:authentication="principal.ProfileName">Bejelentkezés</h2>
+    <div><a sec:authorize="isAuthenticated()" href="/myProfile">
+        <h2  sec:authentication="principal.ProfileName">Felhasznev</h2>
+        </a>
         <a sec:authorize="!isAuthenticated()" href="/login">
             <h2>Bejelentkezés</h2>
         </a>

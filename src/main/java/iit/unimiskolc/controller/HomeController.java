@@ -38,7 +38,6 @@ public class HomeController {
         return "newindex";
     }
 
-
     @GetMapping("/addAd")
     public String newAd(Model model){
         model.addAttribute("allgame",allListedGame());
@@ -85,7 +84,18 @@ public class HomeController {
 
     }
 
+    @RequestMapping("/myProfile")
+    public String myProfile(@AuthenticationPrincipal UserDetailsImp user,Model model){
+        model.addAttribute("adList", adServ.getUserAds(user.getProfileName()));
+        return "userPage";
+    }
 
+    @RequestMapping("/profile/{username}")
+    public String profileAndMyAds(@PathVariable(value = "username") String user,Model model){
+        //model.addAttribute("userDetails",selectedGame());
+        model.addAttribute("adList", adServ.getUserAds(user));
+        return "listOfAds";
+    }
 
     private GameImplement selectedGame(String game){
         return gamesService.getGameByName(game);

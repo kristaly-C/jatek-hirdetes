@@ -37,6 +37,13 @@ public class GameAd {
         this.lastModified = this.adCreated;
     }
 
+    public GameAd(int ID,int gameId, float price, int status) {
+        this.id = ID;
+        this.gameID = gameId;
+        this.price = price;
+        this.status = status;
+    }
+
     public int getGameID() {
         return gameID;
     }

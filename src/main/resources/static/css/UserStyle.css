@@ -1,0 +1,381 @@
+@import url('http://fonts.googleapis.com/css?family=Poppins:wght@300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    font-size: 28px;
+    width: auto !important;
+    background: rgba(4, 57, 94, 1);
+}
+
+#header{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(4, 57, 94, 1)), url("../images/ste.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#headbox{
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    transform: translateX(-50%);
+    left: 50%;
+    width: 95%;
+    height: 340px;
+    z-index: 3;
+    top: 5%;
+}
+
+#content{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background: rgba(4, 57, 94, 1);
+    height: fit-content;
+}
+
+.wrapperhead{
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-auto-rows: 150px;
+    justify-content: center;
+}
+
+#gamepic{
+    height: 150px;
+}
+
+#image{
+    position: relative;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 35%;
+    width:100%;
+    object-fit: contain;
+    max-height: 100%;
+}
+
+#gameinfo{
+    height: 190px;
+}
+
+#gamename{
+    width: 100%;
+    height: 50%;
+}
+
+#gamesite{
+    width: 100%;
+    height: 50%;
+}
+
+#gamesite h2{
+    position: relative;
+    top: 45%;
+    text-align: center;
+    font-size: 1em;
+    color: #d0be46;
+}
+
+#gamename h2{
+    position: relative;
+    top: 20%;
+    text-align: center;
+    font-size: 1em;
+    color: #d0be46;
+}
+#scrollimg{
+    background-image: url("../images/scrollgif.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    bottom: 0px;
+    z-index: 5;
+}
+
+#back{
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    right: 0px;
+    top: 0px;
+    background: #cbb213 url("../images/home.png") no-repeat;
+    background-size: contain;
+    border-radius: 0px 0px 0px 10px;
+    z-index:10;
+}
+
+#design{
+    position: relative;
+    transform: translate(-600px,-475px) rotateZ(70deg);
+    width: 1000px;
+    height: 1000px;
+    background: rgb(203, 203, 203);
+    z-index: 1;
+    -webkit-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.8);
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.8);
+}
+
+.wrappercontent{
+    position: relative;
+    display: grid;
+    grid-row-gap: 10px;
+
+    transform: translateX(-50%);
+    left: 50%;
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Adblock{
+    position: relative;
+    background: rgba(0,0,0,0.2);
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    -webkit-box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.8);
+    box-shadow: 6px 6px 16px -2px rgba(0,0,0,0.8);
+}
+.idbox{
+    position: absolute;
+    height: 25%;
+    width: 100%;
+
+    text-align: center;
+}
+.idbox h2{
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    color: #cccccc;
+    font-size: 1em;
+}
+.username{
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    top: 25%;
+    text-align: center;
+}
+.username h2{
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    color: #cccccc;
+    font-size: 1em;
+}
+
+.price{
+    position: absolute;
+    height: 25%;
+    width: 100%;
+
+    top: 50%;
+    text-align: center;
+}
+
+.price h2{
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    color: #cccccc;
+    font-size: 1em;
+}
+.gobutton{
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    background: #cbb213;
+    top: 75%;
+    text-align: center;
+}
+.gobutton h2{
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    color: #262626;
+    font-size: 1em;
+}
+
+@media only screen and (min-height: 668px) {
+    #headbox{
+        top: 15%;
+        height: 400px;
+    }
+    #gamepic{
+        height: 200px;
+    }
+    #image{
+        transform: translate(-50%,-50%);
+        top: 50%;
+    }
+    .wrapperhead{
+        grid-row-gap: 50px;
+    }
+    #gamename h2{
+        top: 30%;
+    }
+
+    #design{
+        width: 2000px;
+        height: 2000px;
+        transform: translate(-80%,-59%) rotateZ(70deg);
+    }
+
+    #scrollimg{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #headbox{
+        top: 25%;
+        height: 280px;
+        width: 60%;
+    }
+    .wrapperhead{
+        grid-template-columns: 60% 40%;
+    }
+
+    #gamepic{
+        transform: none;
+        height: 280px;
+
+    }
+    #image{
+        object-fit: cover;
+        height: auto;
+        width: 100%;
+
+    }
+    #gameinfo{
+
+        transform: none;
+        height: 280px;
+    }
+
+    #gamesite{
+        height: available;
+    }
+    #gamename{
+        height: available;
+        overflow-wrap: break-word;
+    }
+
+    #gamename h2{
+        transform: translateY(-50%);
+        top: 50%;
+    }
+
+    #gamesite h2{
+        transform: translateY(-50%);
+        top: 50%;
+    }
+
+
+    .wrappercontent{
+        top: 100px;
+    }
+
+    #scrollimg{
+        width: 300px;
+        height: 300px;
+    }
+
+    .Adblock{
+        height: 80px;
+    }
+    .idbox{
+        width: 20%;
+        height: 100%;
+    }
+
+    .username{
+        width: 30%;
+        height: 100%;
+        top: 0;
+        left: 20%;
+    }
+    .price{
+        width: 25%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+    }
+    .gobutton{
+        width: 25%;
+        height: 100%;
+        top: 0;
+        left: 75%;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    #headbox{
+        top: 15%;
+        height: 300px;
+    }
+
+    #gameinfo{
+        height: 300px;
+    }
+    #gamepic{
+        height: 300px;
+    }
+
+    #design{
+        width: 2500px;
+        height: 350px;
+        transform: translate(-38%,-45%);
+        top: 29%;
+    }
+}
+
+
+@media only screen and (min-width: 2560px){
+    #header{
+        height: 40%;
+    }
+    #headbox{
+        top: 10%;
+    }
+    #content{
+        top: 40%;
+    }
+    #scrollimg{
+        display: none;
+    }
+    .wrappercontent{
+        top: 20px;
+    }
+
+    #image{
+        height: 100%;
+        width: auto;
+        left: 40%;
+    }
+
+    #headbox{
+        height: 450px;
+    }
+    #gamepic{
+        height: 450px;
+    }
+    #gameinfo{
+        height: 450px;
+    }
+}

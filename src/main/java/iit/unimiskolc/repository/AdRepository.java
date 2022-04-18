@@ -74,6 +74,22 @@ public class AdRepository {
         return null;
     }
 
+    public List<GameAd> myGamesList(String username) {
+        String sql = "SELECT item.id, item.game, item.price ,item.status FROM `item` INNER JOIN users ON item.usser = users.id  WHERE users.name = ";
+        sql +='"' + username +'"';
+        try {
+            return jdbc.query(sql, (rs, i) ->
+                    new GameAd(
+                            rs.getInt("id"),
+                            rs.getInt("game"),
+                            rs.getInt("price"),
+                            rs.getInt("status")));
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return null;
+    }
+
     public Boolean deleteAd(long gameID){
         String sql = "DELETE FROM item WHERE item.id = ?";
         try{

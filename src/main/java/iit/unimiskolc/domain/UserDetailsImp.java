@@ -59,4 +59,5 @@ public class UserDetailsImp implements UserDetails {
     public long getprifID(){
         return user.getID();
     }
+    public String getHVname(){return user.getHardveraproUrl();}
 }

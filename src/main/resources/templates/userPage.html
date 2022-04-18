@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilom</title>
+    <link rel="stylesheet" th:href="@{/css/UserStyle.css}" href="../static/css/UserStyle.css">
+</head>
+<body>
+<div id="header">
+    <a href="/"><div id="back"></div></a>
+    <div id="headbox" class="wrapperhead">
+        <div id="gameinfo" >
+            <div id="gamename">
+                <h2 sec:authentication="principal.ProfileName">A felhasználó neve</h2>
+            </div>
+            <a th:href="${#authentication.getPrincipal().getHVname()}" target="_blank">
+            <div id="gamesite">
+                <h2 sec:authentication="principal.HVname">Game site</h2>
+            </div>
+            </a>
+        </div>
+    </div>
+    <div id="scrollimg">
+    </div>
+    <div id="design"></div>
+</div>
+<div id="content">
+    <div class="wrappercontent">
+        <div class="Adblock" th:each="ad: ${adList}">
+            <div class="idbox">
+                <h2 th:text="${ad.getId()}">48</h2>
+            </div>
+            <div class="username">
+                <h2 th:text="${ad.getGameID()}">faszom</h2>
+            </div>
+            <div class="price">
+                <h2 th:text="${ad.getPrice()}">Ár</h2>
+            </div>
+            <button th:id="'btn' + ${ad.getId()}" id="btn1" onclick="delfunc(this.id)" class="gobutton">
+                <h2>TÖRLÉS</h2>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/userProf.js" th:src="@{js/userProf.js}"></script>
+</body>
+</html>

@@ -42,5 +42,8 @@ public class AdService {
         return null;
     }
 
+    public List<GameAd> getUserAds(String username){
+        return adrepo.myGamesList(username);
+    }
 
 }
